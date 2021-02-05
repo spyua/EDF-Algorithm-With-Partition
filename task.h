@@ -33,8 +33,8 @@ extern link RemoveTask(node temp, link list);
 extern link InsertTaskToList(node item, link firstnode);
 extern node GetTaskInfo(node get, link list);
 
-extern void ClearCoreInfo(node Core[]);
-extern void ClearTaskInfo(node node[]);
+extern void InitialCoreInfo(node Core[]);
+extern void InitialTaskInfo(node node[]);
 extern void DisplayTaskList(link node);
 extern void LoadTaskInfo(link list, node item);
 

@@ -4,13 +4,13 @@
 #include <conio.h>
 
 #include "task.h"
-#include "parition.h"
+#include "partition.h"
 #include "schedule.h"
 
-node TaskSet[TASK_NUM];
-node CoreSet[CORE_NUM];
-link CoreList[CORE_NUM];
-link Ready_Queu;
+node _taskSet[TASK_NUM];
+node _coreSet[CORE_NUM];
+link _coreList[CORE_NUM];
+link _readyQueue;
 
 //設置Task參數
 void InitialTask(Task item[])
@@ -92,30 +92,30 @@ void InitialTask(Task item[])
 int main(int argc, char* argv[])
 {
 
-	ClearTaskInfo(TaskSet);
-	InitialTask(TaskSet);
-	ClearCoreInfo(CoreSet);
+	InitialTaskInfo(_taskSet);
+	InitialTask(_taskSet);
+	InitialCoreInfo(_coreSet);
 
 	printf("Task Set\n");
 	printf("--------------------------------------------------------------------------------\n");
 	for (int taskCnt = 0; taskCnt < TASK_NUM; taskCnt++)
-		Ready_Queu = InsertTaskToList(TaskSet[taskCnt], Ready_Queu);
+		_readyQueue = InsertTaskToList(_taskSet[taskCnt], _readyQueue);
 
-	DisplayTaskList(Ready_Queu);
+	DisplayTaskList(_readyQueue);
 
 	//BestFit(TaskSet, CoreSet, CoreList);
-	FirstFit(TaskSet, CoreSet, CoreList);
+	FirstFit(_taskSet, _coreSet, _coreList);
 	//WorstFit(TaskSet, CoreSet, CoreList);
 
 	for (int coreCnt = 0; coreCnt < CORE_NUM; coreCnt++) {
 
 		int coreIDDisplay = coreCnt + 1;
 
-		if (CoreList[coreCnt] == NULL)
+		if (_coreList[coreCnt] == NULL)
 			break;
-		printf("Core%d\t U=%f\n", coreIDDisplay, 1.0 - CoreSet[0].utilization);
-		DisplayTaskList(CoreList[coreCnt]);
-		EDF_SchedSimulator(CoreList[coreCnt], coreIDDisplay, 0, 100);
+		printf("Core%d\t U=%f\n", coreIDDisplay, 1.0 - _coreSet[0].utilization);
+		DisplayTaskList(_coreList[coreCnt]);
+		EDF_SchedSimulator(_coreList[coreCnt], coreIDDisplay, 0, 100);
 	}
 
 

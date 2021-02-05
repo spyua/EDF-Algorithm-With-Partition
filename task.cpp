@@ -141,7 +141,7 @@ void LoadTaskInfo(link list, node item)
     list->deadline = item.deadline;
 }
 
-void ClearCoreInfo(node Core[])
+void InitialCoreInfo(node Core[])
 {
     for (int i = 0; i < CORE_NUM; i++)
     {
@@ -151,7 +151,7 @@ void ClearCoreInfo(node Core[])
     }
 }
 
-void ClearTaskInfo(node node[])
+void InitialTaskInfo(node node[])
 {
     for (int i = 0; i < TASK_NUM; i++)
     {
