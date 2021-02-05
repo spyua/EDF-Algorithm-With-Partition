@@ -2,7 +2,7 @@
 Earliest Deadline First Scheduling algorithm simulation on multi core environment.
 
 ## Partition Method
- - First Fit Allocation : This method keeps the list of tasks organized by core location,low-ordered to high-ordered core id. 
+ - First Fit Allocation : This method keeps the task list tasks organized by core location,low-ordered to high-ordered core id. 
  - Best Fit Allcation : This method keeps the task list in order by core utilition – smallest to largest.
  - Worst Fit Allocation :　This method keeps the task list in order by core utilition –  largest　to smallest.
  
