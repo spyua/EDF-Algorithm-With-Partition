@@ -1,4 +1,4 @@
-# Simple EDF-Algorithm-Simulator
+# Simple EDF Schedule Algorithm Simulator
 Earliest Deadline First Scheduling algorithm simulation on multi core environment.
 
 ## Partition Method
