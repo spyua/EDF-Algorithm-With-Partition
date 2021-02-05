@@ -112,7 +112,7 @@ void EDF_SchedSimulator(link list, int coreID, int startTime, int endTime)
 				taskReadyQueue = InsertTaskToList(currentTask, taskReadyQueue);
 			}
 
-			if (previousTask.taskNo != IDLE || currentTask.taskNo != IDLE) 
+			if (previousTask.taskNo != IDLE && currentTask.taskNo != IDLE) 
 				printf("%d %15d \t\tTask%d<%d>    \tpreempted\tTask%d<%d>\n", coreID, timeTick, previousTask.taskNo, previousTask.deadline, currentTask.taskNo, currentTask.deadline);
 		
 			if (previousTask.taskNo == IDLE)
